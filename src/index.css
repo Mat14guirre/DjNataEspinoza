@@ -1,6 +1,6 @@
 /* Reset básico */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: "Segoe UI", Arial, sans-serif; background: #121212; color: #fff; scroll-behavior: smooth; }
+body { font-family: "Segoe UI", Arial, sans-serif; background: #121212; color: #fff; scroll-behavior: smooth;padding-top: 80px; }
 
 /* Parallax backgrounds */
 .parallax {
@@ -10,13 +10,33 @@ body { font-family: "Segoe UI", Arial, sans-serif; background: #121212; color: #
   background-repeat: no-repeat;
   transition: background-position 0.2s ease-out;
 }
+/* Contenedor del logo */
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
 
+/* Imagen del logo */
+.logodj {
+  height: 80px;     /* ajustá según tu diseño */
+  width: auto;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto hover */
+.logo:hover .logodj {
+  transform: scale(1.05);
+}
 /* Navbar */
 nav {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 20px 40px;
+  height: 80px; /* altura definida para control */
+  padding: 0 40px; /* quitamos padding vertical para que no se sobreponga */
   background: rgba(0,0,0,0.9);
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   display: flex;
@@ -142,48 +162,107 @@ button {
   transition: all 0.3s ease; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 button.primary { background: #ffcc00; color: #121212; }
-button.primary:hover { transform: translateY(-3px); background: #ff79a9; color: #fff; box-shadow: 0 6px 20px rgba(255,121,169,0.4); }
+button.primary:hover { transform: translateY(-3px); background: #444e27; color: #fff; box-shadow: 0 6px 20px rgba(255,121,169,0.4); }
 button.secondary { border: 2px solid #ffcc00; background: transparent; color: #ffcc00; }
 button.secondary:hover { transform: translateY(-3px); background: #ffcc00; color: #121212; box-shadow: 0 6px 20px rgba(255,204,0,0.4); }
 
 /* Hero */
 .hero {
-  height: 100vh; background: linear-gradient(135deg, #ff79a9, #ffcc00);
-  color: #121212; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 20px;
+  height: 100vh; 
+  background: linear-gradient(135deg, #5f5c5d, #ffcc00);
+  color: #121212; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: flex-start; /* cambié a flex-start para que el carrusel no tape todo */
+  text-align: center; 
+  padding: 20px;
 }
-.hero h1 { font-size: 3.2rem; margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); transition: all 0.3s ease; }
-.hero h1:hover { text-shadow: 0 4px 20px rgba(0,0,0,0.7); }
-.hero p { font-size: 1.2rem; margin-bottom: 30px; line-height: 1.5; }
-.hero button { margin: 5px; }
 
+.hero h1 { 
+  font-size: 3.2rem; 
+  margin-bottom: 20px; 
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5); 
+  transition: all 0.3s ease; 
+}
+.hero h1:hover { 
+  text-shadow: 0 4px 20px rgba(0,0,0,0.7); 
+}
+.hero p { 
+  font-size: 1.2rem; 
+  margin-bottom: 30px; 
+  line-height: 1.5; 
+}
+.hero button { 
+  margin: 5px; 
+}
+
+/* Carrusel */
 .hero-carousel {
   position: relative;
-  margin-top: 1rem;
   width: 100%;
-  height: 400px;
+  height: 500px; /* Carrusel grande */
   overflow: hidden;
   border-radius: 10px;
+  margin-top: 20px;
 }
 
 .carousel-slide {
-  position: absolute;
+  position: absolute; /* solo relativo al carrusel */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
   opacity: 0;
   transition: opacity 1s ease-in-out;
+  border-radius: 10px;
 }
 
 .carousel-slide.active {
   opacity: 1;
 }
 
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.carousel-title {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Texto descriptivo debajo del carrusel */
+.hero-description {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 1.2rem;
+  color: white;
+}
+
 /* Responsive */
+@media (max-width: 1024px) {
+  .hero-carousel {
+    height: 400px;
+  }
+  .carousel-title {
+    font-size: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-carousel {
     height: 250px;
+  }
+  .carousel-title {
+    font-size: 1.2rem;
   }
 }
 
@@ -278,7 +357,7 @@ button.secondary:hover { transform: translateY(-3px); background: #ffcc00; color
 
 /* CTA */
 .cta {
-  height: 50vh; background: linear-gradient(135deg, #ffcc00, #ff79a9);
+  height: 50vh; background: linear-gradient(135deg, #ffcc00, #5f5c5d);
   display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
   color: #121212; text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
@@ -292,13 +371,41 @@ button.secondary:hover { transform: translateY(-3px); background: #ffcc00; color
 .music h2 { font-size: 2.2rem; margin-bottom: 30px; color: #ffcc00; }
 .music p { max-width: 700px; margin: 0 auto 40px; line-height: 1.6; color: #ccc; }
 .music-embeds {
-  display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 2rem 0; /* espacio arriba y abajo */
 }
-.music-embeds iframe {
-  border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.4); transition: all 0.3s ease;
-}
-.music-embeds iframe:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 12px 30px rgba(255,204,0,0.3); }
 
+.music-embeds iframe {
+  width: 300px;
+  height: 380px;
+  border: none;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* efecto hover */
+.music-embeds iframe:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .music-embeds iframe {
+    width: 250px;
+    height: 330px;
+  }
+}
+
+@media (max-width: 768px) {
+  .music-embeds iframe {
+    width: 100%;
+    max-width: 300px;
+    height: 380px;
+  }
+}
 /* Footer */
 .footer {
   background-color: #000; color: #fff; text-align: center; padding: 2rem 1rem;position: relative;

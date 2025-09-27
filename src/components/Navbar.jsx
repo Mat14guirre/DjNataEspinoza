@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,7 +15,13 @@ export default function Navbar() {
 
   return (
     <nav className="reveal">
-      <h1>DJ Nata Espinoza</h1>
+      <Link to="/" className="logo">
+        <img
+          src="/djnatalogo.jpg"
+          alt="DJ Natanael Espinoza"
+          className="logodj"
+        />
+      </Link>
 
       {/* Botón hamburguesa */}
       <div

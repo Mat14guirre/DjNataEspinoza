@@ -1,16 +1,22 @@
 export default function CTA() {
   return (
-    <section id="contacto" className="hero reveal parallax cta" style={{ height: "50vh" }}>
+    <section
+      id="contacto"
+      className="hero reveal parallax cta"
+      style={{ height: "50vh" }}
+    >
       <h2 style={{ animationDelay: "0.2s" }}>¿Listo para vivir la música?</h2>
       <p style={{ animationDelay: "0.4s" }}>
-        Reservá tu evento hoy y transformá tu noche en una experiencia inolvidable.
+        Reservá tu evento hoy y transformá tu noche en una experiencia
+        inolvidable.
       </p>
       <button
         className="primary"
         style={{ marginTop: "20px", animationDelay: "0.6s" }}
+        onClick={() => window.open("https://wa.me/5493416165302", "_blank")}
       >
         Contratar ahora
       </button>
     </section>
-  )
+  );
 }

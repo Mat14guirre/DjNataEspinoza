@@ -6,7 +6,7 @@ export default function Footer() {
       <p>© {new Date().getFullYear()} DJ Natanael Espinoza. Todos los derechos reservados.</p>
       <div className="social-icons">
         <a
-          href="https://instagram.com/"
+          href="https://www.instagram.com/djnataespinoza?igsh=MWl6Znl2czQwaGlldw=="
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"
@@ -14,7 +14,7 @@ export default function Footer() {
           <FaInstagram />
         </a>
         <a
-          href="https://spotify.com/"
+          href="https://open.spotify.com/user/21zjzvdxkov3ky6srsxwsw3ja?si=208a1e32e74142b3"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Spotify"
@@ -22,7 +22,7 @@ export default function Footer() {
           <FaSpotify />
         </a>
         <a
-          href="https://wa.me/54911XXXXXXXX"
+          href="https://wa.me/5493416165302"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="WhatsApp"
