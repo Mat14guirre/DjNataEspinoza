@@ -1,17 +1,25 @@
-# React + Vite
+# DJ Natanael Espinoza - Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+landing page de **DJ Natanael Espinoza**! 🎧🔥  
+Esta página está diseñada para mostrar la música, eventos y la energía de las fiestas del DJ, con un diseño moderno y totalmente responsive.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Características principales
 
-## React Compiler
+- **Navbar responsive** con menú hamburguesa y animaciones.
+- **Hero con carrusel del DJ**: muestra fotos destacadas con efecto fade y autoplay.
+- **Sección Música**: incluye playlists y sets embebidos de Spotify.
+- **Eventos**: calendario visual con fechas y fotos de boliches y bares.
+- **Galería de fiestas**: carrusel automático con fotos de la gente disfrutando de la música.
+- **Diseño responsive**: se adapta a todo tipo de pantallas (desktop, tablet y mobile).
+- **Animaciones suaves**: efectos `reveal` al hacer scroll y hover en imágenes.
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠 Tecnologías usadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# DjNataEspinoza
+- React.js
+- CSS moderno con Flexbox y Grid
+- JavaScript (hooks: `useState`, `useEffect`)
+- Spotify Embeds
