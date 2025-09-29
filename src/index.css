@@ -315,7 +315,7 @@ button.secondary:hover { transform: translateY(-3px); background: #ffcc00; color
   display: flex;
   gap: 1rem;
   padding: 10px;
-  animation: scroll 60s linear infinite; 
+  animation: scroll 40s linear infinite; 
 }
 
 @keyframes scroll {
@@ -323,7 +323,7 @@ button.secondary:hover { transform: translateY(-3px); background: #ffcc00; color
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-1000%); 
+    transform: translateX(-50%); 
   }
 }
 
@@ -335,21 +335,21 @@ button.secondary:hover { transform: translateY(-3px); background: #ffcc00; color
 
 /* Responsive */
 @media (max-width: 768px) {
-  .gallery-slide img {
-    width: 180px;
-    height: 140px;
+  .gallery-slide {
+    gap: 0.5rem;     
+    padding: 5px;       
+    animation: scroll 20s linear infinite; /* Scroll más rápido para móviles */
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-900%); 
+    }
   }
 }
-
-
-/* Responsive */
-@media (max-width: 768px) {
-  .gallery-slide img {
-    width: 250px;   /* antes 120px */
-    height: 180px;  /* antes 90px */
-  }
-}
-
 /* Features / Servicios */
 .features {
   padding: 80px 20px; text-align: center; background: #1e1e1e; border-radius: 12px; margin: 40px 20px;
