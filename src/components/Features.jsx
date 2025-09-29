@@ -1,13 +1,21 @@
 const features = [
-  { title: "Profesionalismo", desc: "Experiencia comprobada en eventos y festivales exclusivos." },
-  { title: "Creatividad", desc: "Sets únicos que combinan distintos estilos musicales con elegancia." },
-  { title: "Versatilidad", desc: "Capacidad de adaptarme a cualquier tipo de evento o público." },
+  { 
+    title: "Profesionalismo", 
+    desc: "Cientos de eventos y fiestas privadas exitosos respaldan cada uno de mis sets, garantizando calidad y compromiso en cada presentación." 
+  },
+  { 
+    title: "Creatividad", 
+    desc: "Mezclas únicas y frescas que combinan géneros y ritmos, diseñadas para mantener al público conectado y vibrando toda la noche." 
+  },
+  { 
+    title: "Versatilidad", 
+    desc: "Capacidad de adaptarme a cualquier evento, público y ambiente, creando la atmósfera perfecta, desde fiestas íntimas hasta grandes eventos." 
+  },
 ]
-
 export default function Features() {
   return (
     <section className="features reveal">
-      <h2>Mis servicios</h2>
+      <h2>Mi propuesta musical</h2>
       <div className="feature-grid">
         {features.map((f, i) => (
           <div

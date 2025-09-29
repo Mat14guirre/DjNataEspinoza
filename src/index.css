@@ -168,7 +168,7 @@ button.secondary:hover { transform: translateY(-3px); background: #ffcc00; color
 
 /* Hero */
 .hero {
-  height: 100vh; 
+  height: 90vh; 
   background: linear-gradient(135deg, #5f5c5d, #ffcc00);
   color: #121212; 
   display: flex; 
@@ -176,7 +176,7 @@ button.secondary:hover { transform: translateY(-3px); background: #ffcc00; color
   align-items: center; 
   justify-content: flex-start; /* cambié a flex-start para que el carrusel no tape todo */
   text-align: center; 
-  padding: 20px;
+  
 }
 
 .hero h1 { 
@@ -203,7 +203,6 @@ button.secondary:hover { transform: translateY(-3px); background: #ffcc00; color
   width: 100%;
   height: 500px; /* Carrusel grande */
   overflow: hidden;
-  border-radius: 10px;
   margin-top: 20px;
 }
 
@@ -215,7 +214,7 @@ button.secondary:hover { transform: translateY(-3px); background: #ffcc00; color
   height: 100%;
   opacity: 0;
   transition: opacity 1s ease-in-out;
-  border-radius: 10px;
+  
 }
 
 .carousel-slide.active {
@@ -226,7 +225,6 @@ button.secondary:hover { transform: translateY(-3px); background: #ffcc00; color
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10px;
 }
 
 .carousel-title {
@@ -258,11 +256,47 @@ button.secondary:hover { transform: translateY(-3px); background: #ffcc00; color
 }
 
 @media (max-width: 768px) {
+  .hero{
+    height: 60vh; 
+  }
   .hero-carousel {
     height: 250px;
   }
   .carousel-title {
     font-size: 1.2rem;
+  }
+}
+
+.fotosobremi {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%; 
+  object-fit: cover; 
+  margin: 20px auto; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fotosobremi:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Para pantallas grandes */
+@media (min-width: 768px) {
+  .fotosobremi {
+    width: 250px;
+    height: 250px;
+    margin: 0; /* ya no centrado automático */
+  }
+}
+
+/* Para celulares */
+@media (max-width: 767px) {
+  .fotosobremi {
+    width: 150px;
+    height: 150px;
+    
   }
 }
 
@@ -272,64 +306,47 @@ button.secondary:hover { transform: translateY(-3px); background: #ffcc00; color
 }
 
 .gallery-container {
+  overflow: hidden;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
 }
 
 .gallery-slide {
   display: flex;
   gap: 1rem;
-  overflow: hidden;
+  padding: 10px;
+  animation: scroll 60s linear infinite; 
 }
 
-.gallery-slide img {
-  width: 280px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: transform 0.3s;
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1000%); 
+  }
 }
 
+/* Hover opcional */
 .gallery-slide img:hover {
   transform: scale(1.05);
-}
-
-/* Botones */
-.carousel-btn {
-  background: rgba(0,0,0,0.5);
-  color: #ffc107;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  font-size: 1.5rem;
-  border-radius: 5px;
-  transition: background 0.3s;
-  z-index: 10;
-}
-
-.carousel-btn:hover {
-  background: rgba(0,0,0,0.8);
-}
-
-.carousel-btn.left {
-  margin-right: 10px;
-}
-
-.carousel-btn.right {
-  margin-left: 10px;
+  transition: transform 0.3s;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .gallery-slide img {
-    width: 120px;
-    height: 90px;
+    width: 180px;
+    height: 140px;
   }
-  .carousel-btn {
-    font-size: 1.2rem;
-    padding: 6px 10px;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gallery-slide img {
+    width: 250px;   /* antes 120px */
+    height: 180px;  /* antes 90px */
   }
 }
 
@@ -394,8 +411,8 @@ button.secondary:hover { transform: translateY(-3px); background: #ffcc00; color
 /* Responsive */
 @media (max-width: 1024px) {
   .music-embeds iframe {
-    width: 250px;
-    height: 330px;
+    width: 280px;
+    height: 360px;
   }
 }
 
@@ -403,9 +420,10 @@ button.secondary:hover { transform: translateY(-3px); background: #ffcc00; color
   .music-embeds iframe {
     width: 100%;
     max-width: 300px;
-    height: 380px;
+     height: 180px !important;
   }
 }
+
 /* Footer */
 .footer {
   background-color: #000; color: #fff; text-align: center; padding: 2rem 1rem;position: relative;

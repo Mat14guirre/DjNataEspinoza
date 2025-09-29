@@ -3,10 +3,8 @@ import { useState, useEffect } from "react";
 // Fotos del DJ con título para cada slide
 const fotosDJ = [
   { src: "/djnata7.jpg", title: "Fiesta total" },
-  { src: "/djnata4.jpg", title: "Energía máxima" },
   { src: "/djnata8.jpg", title: "Noches inolvidables" },
   { src: "/djnata10.jpg", title: "Vibras que contagian" },
-  { src: "/djnata3.jpg", title: "Ritmo sin fin" },
   { src: "/djnata9.jpg", title: "Público activo" }
 ];
 

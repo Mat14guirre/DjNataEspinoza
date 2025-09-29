@@ -1,42 +1,34 @@
-import { useState } from "react";
-
 const fotosFiestas = [
-  "https://picsum.photos/400/300?random=20",
-  "https://picsum.photos/400/300?random=21",
-  "https://picsum.photos/400/300?random=22",
-  "https://picsum.photos/400/300?random=23",
-  "https://picsum.photos/400/300?random=24",
-  "https://picsum.photos/400/300?random=25",
+  "./fotobar2.jpg",
+  "./fotobar3.jpg",
+  "./fotobar4.jpg",
+  "./fotobar6.jpg",
+  "./fotobar1.jpg",
+  "./fotobar5.jpg"
 ];
 
 export default function Fiestas() {
-  const [startIndex, setStartIndex] = useState(0);
-
-  const nextSlide = () => {
-    setStartIndex((prev) => (prev + 1) % fotosFiestas.length);
-  };
-
-  const prevSlide = () => {
-    setStartIndex((prev) => (prev - 1 + fotosFiestas.length) % fotosFiestas.length);
-  };
-
-  // Mostrar 3 fotos a la vez (desktop)
-  const visibleFotos = [];
-  for (let i = 0; i < 3; i++) {
-    visibleFotos.push(fotosFiestas[(startIndex + i) % fotosFiestas.length]);
-  }
+  // duplicamos las fotos para loop infinito
+  const loopFotos = [...fotosFiestas, ...fotosFiestas];
 
   return (
-    <section id="fiestas" className="fiestas reveal" style={{ padding: "2rem 1rem", textAlign: "center" }}>
-      <h2 style={{ color: "#ffc107", marginBottom: "1rem" }}>Mi Gente</h2>
+    <section
+      id="fiestas"
+      className="fiestas reveal"
+      style={{ padding: "2rem 1rem", textAlign: "center" }}
+    >
+      <h2 style={{ color: "#ffc107", marginBottom: "1rem" }}>Escenarios de mi música</h2>
       <div className="gallery-container">
-        <button className="carousel-btn left" onClick={prevSlide}>&lt;</button>
         <div className="gallery-slide">
-          {visibleFotos.map((foto, idx) => (
-            <img key={idx} src={foto} alt={`Fiesta ${idx + 1}`} />
+          {loopFotos.map((foto, idx) => (
+            <img
+              key={idx}
+              src={foto}
+              alt={`Fiesta ${idx + 1}`}
+              style={{ width: "400px", height: "280px", objectFit: "cover", borderRadius: "10px", flexShrink: 0 }}
+            />
           ))}
         </div>
-        <button className="carousel-btn right" onClick={nextSlide}>&gt;</button>
       </div>
     </section>
   );
