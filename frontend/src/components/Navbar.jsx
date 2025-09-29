@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [logoClicks, setLogoClicks] = useState(0);
+  const navigate = useNavigate();
 
   // Función para hacer scroll suave a secciones
   const scrollToSection = (id) => {
@@ -13,15 +15,24 @@ export default function Navbar() {
     }
   };
 
+  // Manejo de clicks en el logo
+  const manejarClickLogo = () => {
+    setLogoClicks(logoClicks + 1);
+    if (logoClicks + 1 >= 5) {
+      setLogoClicks(0); // resetea el contador
+      navigate("/eventos-admin"); // redirige al panel de admin
+    }
+  };
+
   return (
     <nav className="reveal">
-      <Link to="/" className="logo">
+      <div className="logo" onClick={manejarClickLogo} style={{ cursor: "pointer" }}>
         <img
           src="/djnatalogo.jpg"
           alt="DJ Natanael Espinoza"
           className="logodj"
         />
-      </Link>
+      </div>
 
       {/* Botón hamburguesa */}
       <div
