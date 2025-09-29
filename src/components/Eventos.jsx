@@ -43,7 +43,7 @@ export default function Eventos() {
           gap: "1.5rem",
         }}
       >
-        {eventos.map((e, idx) => (
+        {eventos.map((e, idx) => ( 
           <div
             key={idx}
             className="evento-card"
