@@ -11,7 +11,7 @@ export default function AdminEventos() {
 
   // Cargar eventos al inicio
   useEffect(() => {
-    fetch("http://localhost:5000/api/events")
+    fetch("https://dj-nata-espinoza.vercel.app/")
       .then(res => res.json())
       .then(data => setEvents(data));
   }, []);
@@ -36,13 +36,13 @@ export default function AdminEventos() {
     data.append("place", formData.place);
     if (formData.image) data.append("image", formData.image);
 
-    await fetch("http://localhost:5000/api/events", {
+    await fetch("https://dj-nata-espinoza.vercel.app/", {
       method: "POST",
       body: data,
     });
 
     // refrescar lista
-    const res = await fetch("http://localhost:5000/api/events");
+    const res = await fetch("https://dj-nata-espinoza.vercel.app/");
     const updated = await res.json();
     setEvents(updated);
 
@@ -52,7 +52,7 @@ export default function AdminEventos() {
 
   // Eliminar evento
   const handleDelete = async (id) => {
-    await fetch(`http://localhost:5000/api/events/${id}`, {
+    await fetch(`https://dj-nata-espinoza.vercel.app/${id}`, {
       method: "DELETE",
     });
 
@@ -103,7 +103,7 @@ export default function AdminEventos() {
             <p>{new Date(ev.date).toLocaleDateString()} — {ev.place}</p>
             {ev.image && (
               <img
-                src={`http://localhost:5000${ev.image}`}
+                src={`https://dj-nata-espinoza.vercel.app/${ev.image}`}
                 alt={ev.title}
                 style={{ width: "200px", borderRadius: "8px" }}
               />
