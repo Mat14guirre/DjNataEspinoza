@@ -1,38 +1,66 @@
-import express from "express";
-import multer from "multer";
-import Event from "../models/Event.js";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const router = express.Router();
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [logoClicks, setLogoClicks] = useState(0);
+  const navigate = useNavigate();
 
-// Configuración de multer (guardar imágenes en /uploads)
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, "uploads/"),
-  filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname)
-});
-const upload = multer({ storage });
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setMenuOpen(false);
+    }
+  };
 
-// 📌 GET todos los eventos
-router.get("/", async (req, res) => {
-  const events = await Event.find().sort({ date: 1 });
-  res.json(events);
-});
+  const manejarClickLogo = () => {
+    setLogoClicks((prev) => {
+      const nuevo = prev + 1;
+      if (nuevo >= 5) {
+        navigate("/eventos-admin"); // redirige al panel de admin
+        return 0; // resetea contador
+      }
+      return nuevo;
+    });
+  };
 
-// 📌 POST crear evento
-router.post("/", upload.single("image"), async (req, res) => {
-  const newEvent = new Event({
-    title: req.body.title,
-    date: req.body.date,
-    place: req.body.place,
-    image: req.file ? `/uploads/${req.file.filename}` : null
-  });
-  await newEvent.save();
-  res.json(newEvent);
-});
+  return (
+    <nav className="reveal">
+      <div
+        className="logo"
+        onClick={manejarClickLogo}
+        style={{ cursor: "pointer" }}
+      >
+        <img
+          src="/djnatalogo.jpg"
+          alt="DJ Natanael Espinoza"
+          className="logodj"
+        />
+      </div>
 
-// 📌 DELETE borrar evento
-router.delete("/:id", async (req, res) => {
-  await Event.findByIdAndDelete(req.params.id);
-  res.json({ message: "Evento eliminado" });
-});
+      {/* Botón hamburguesa */}
+      <div
+        className={`menu-toggle ${menuOpen ? "active" : ""}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
-export default router;
+      {/* Menú */}
+      <ul className={menuOpen ? "active" : ""}>
+        <li onClick={() => scrollToSection("inicio")}>Inicio</li>
+        <li onClick={() => scrollToSection("sobre-mi")}>Sobre mi</li>
+        <li onClick={() => scrollToSection("musica")}>Música</li>
+        <li onClick={() => scrollToSection("contacto")}>Contacto</li>
+        <li onClick={() => scrollToSection("eventos")}>Eventos</li>
+      </ul>
+
+      <button className="primary" onClick={() => scrollToSection("contacto")}>
+        Contratar
+      </button>
+    </nav>
+  );
+}
